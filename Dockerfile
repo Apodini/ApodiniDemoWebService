@@ -20,11 +20,11 @@ WORKDIR /build
 COPY . .
 
 # Build everything, with optimizations and test discovery
-RUN swift build -Xswiftc -Xfrontend -Xswiftc -sil-verify-none -c release -j 1 -v
+RUN swift build -Xswiftc -Xfrontend -Xswiftc -sil-verify-none -c debug -j 1 -v
 
 WORKDIR /staging
 
-RUN cp "$(swift build -c release --package-path /build --show-bin-path)/TestWebService" ./
+RUN cp "$(swift build -c debug --package-path /build --show-bin-path)/TestWebService" ./
 
 FROM hendesi/master-thesis:offical-swift-arm
 # FROM hendesi/master-thesis:swift-5.4
