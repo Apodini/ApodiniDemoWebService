@@ -20,11 +20,11 @@ WORKDIR /build
 COPY . .
 
 # Build everything, with optimizations and test discovery and
-RUN swift build -c debug
+RUN swift build -c debug --package-path ./WebService
 
 WORKDIR /staging
 
-RUN cp "$(swift build -c debug --package-path /build --show-bin-path)/TestWebService" ./
+RUN cp "$(swift build -c debug --package-path /build/WebService --show-bin-path)/TestWebService" ./
 
 # FROM hendesi/master-thesis:offical-swift-arm
 FROM ghcr.io/apodini/swift@sha256:53b4295f95dc1eafcbc2e03c5dee41839e9652ca31397b9feb4d8903fe1b54ea as run
