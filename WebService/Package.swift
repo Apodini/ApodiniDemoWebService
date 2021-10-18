@@ -26,7 +26,8 @@ let package = Package(
                 .product(name: "ApodiniOpenAPI", package: "Apodini"),
                 .product(name: "ApodiniDeploy", package: "Apodini"), 
                 .product(name: "DeploymentTargetIoTRuntime", package: "ApodiniIoTDeploymentProvider"),
-                .product(name: "LifxIoTDeploymentOption", package: "ApodiniIoTDeploymentProvider")
+                .product(name: "LifxIoTDeploymentOption", package: "ApodiniIoTDeploymentProvider"),
+                .product(name: "DuckieIoTDeploymentOption", package: "ApodiniIoTDeploymentProvider")
             ]),
         .testTarget(
             name: "TestWebServiceTests",

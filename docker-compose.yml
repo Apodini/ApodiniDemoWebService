@@ -7,7 +7,11 @@ services:
     image: "hendesi/master-thesis:latest-arm64"
     # Expose port 8080 of container on port 443 of host
     ports:
-      - "80:80"
-    # Test if mounting works with deployment provider
+      - "8080:8080"
+    privileged: true
+    user: root
     volumes:
-      - ../WebService:/app
+      - ${ENV_DEPLOYPATH}:/app/tmp:Z
+    command: ${ENV_COMMAND}
+    
+    # Test if mounting works with deployment provider

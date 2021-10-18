@@ -5,28 +5,22 @@ import ArgumentParser
 import ApodiniDeploy
 import DeploymentTargetIoTRuntime
 import LifxIoTDeploymentOption
+import DuckieIoTDeploymentOption
 
 @main
 struct TestWebService: WebService {
     var content: some Component {
-        Group("demo") {
-            Text("Test")
-                .identified(by: "Handler1")
-                .metadata(
-                    DeploymentDevice(.lifx)
-                )
-            Group("123") {
-                TextHandler("Spain")
-            }
-        }
-        Group("exe") {
-            Text("Should be visible")
-                .metadata(
-                    DeploymentDevice(.lifx)
-                )
-            Text("Should not be visible")
-                .operation(.delete)
-        }
+        Group("lifx") {
+            TextHandler("Displaying Lifx Content")
+        }.metadata(DeploymentDevice(.lifx))
+        
+        Group("duckie") {
+            TextHandler("Displaying Duckie Content")
+        }.metadata(DeploymentDevice(.duckie))
+        
+        Group("common") {
+            TextHandler("Displaying Common Content")
+        }.metadata(DeploymentDevice(.default))
     }
     
     var configuration: Configuration {
