@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Apodini/ApodiniIoTDeploymentProvider", .branch("develop")),
-        .package(url: "https://github.com/JASS-2021/JassDeploymentProviderValidation.git", branch("trunk")),
+        .package(name: "JassDeploymentProvider", url: "https://github.com/JASS-2021/JassDeploymentProviderValidation.git", .branch("trunk")),
         .package(url: "https://github.com/Apodini/Apodini.git", .upToNextMinor(from: "0.5.0"))
     ],
     targets: [
@@ -27,8 +27,8 @@ let package = Package(
                 .product(name: "ApodiniOpenAPI", package: "Apodini"),
                 .product(name: "ApodiniDeploy", package: "Apodini"), 
                 .product(name: "DeploymentTargetIoTRuntime", package: "ApodiniIoTDeploymentProvider"),
-                .product(name: "LifxIoTDeploymentOption", package: "LifxIoTDeploymentOption"),
-                .product(name: "DuckieIoTDeploymentOption", package: "LifxIoTDeploymentOption")
+                .product(name: "LifxIoTDeploymentOption", package: "JassDeploymentProvider"),
+                .product(name: "DuckieIoTDeploymentOption", package: "JassDeploymentProvider")
             ]),
         .testTarget(
             name: "TestWebServiceTests",
